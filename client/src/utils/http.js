@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const httpInstance = axios.create({
-  baseURL: 'http://localhost:3000/api', // 后端 API 的基础 URL
+  baseURL: 'http://localhost:3000/api', // 确保基础 URL 是正确的
   timeout: 10000, // 请求超时时间
   headers: {
     'Content-Type': 'application/json',

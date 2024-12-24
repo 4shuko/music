@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require('body-parser');
 const authRouter = require('./routers/auth');
+const adminRouter = require('./routers/admin');
 const db = require('./db/DbUtils'); // 引入数据库连接
 
 const app = express();
@@ -27,7 +28,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 
 // 使用路由
-app.use('/api', authRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/admin', adminRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

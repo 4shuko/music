@@ -70,7 +70,12 @@
               const response = await login(this.loginForm.username, this.loginForm.password, this.loginForm.isAdmin);
               if (response.success) {
                 this.$message.success('登录成功');
-                this.$router.push('/home'); // 登录成功后跳转到主页
+                localStorage.setItem('username', this.loginForm.username); // 存储用户名
+                if (this.loginForm.isAdmin) {
+                  this.$router.push('/admin');
+                } else {
+                  this.$router.push('/home');
+                }
               } else {
                 this.$message.error(response.message);
               }
